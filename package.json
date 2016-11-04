@@ -1,0 +1,19 @@
+{
+  "name": "pinpoint",
+  "version": "1.0.0",
+  "description": "To track call to actions of webpage layout",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leocrave/pinpoint.git"
+  },
+  "author": "leoboey <leoboey89@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leocrave/pinpoint/issues"
+  },
+  "homepage": "https://github.com/leocrave/pinpoint#readme"
+}
