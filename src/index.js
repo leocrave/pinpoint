@@ -223,23 +223,23 @@ var getCurrentUrl = function() {
 }
 
 var getChannelRef = function() {
-    var param, channelParam, channel
+    var param, channelParam, channel = ''
     
-    param = getParams()
-    
-    channelParam = param.match(/c=[\d|\w]+/ig)
-    channel = channelParam[0].replace(/c\=/ig, '')
+    if (param = getParams()) {
+        channelParam = param.match(/c=[\d|\w]+/ig)
+        channel = channelParam[0].replace(/c\=/ig, '')
+    }
     
     return channel
 }
 
 var getBatchRef = function() {
-    var param, batchParam, batch
+    var param, batchParam, batch = ''
     
-    param = getParams()
-    
-    batchParam = param.match(/b=[\d|\w]+/ig)
-    batch = batchParam[0].replace(/b\=/ig, '')
+    if (param = getParams()) {
+        batchParam = param.match(/b=[\d|\w]+/ig)
+        batch = batchParam[0].replace(/b\=/ig, '')
+    }
     
     return batch
 }
@@ -251,23 +251,26 @@ var getParams = function() {
     
     param = url.match(/\?[(\w|\d|\=|\&|\#)]+/ig)
     
-    return param[0]
+    return param === null ? false : param[0]
 }
 
 var getPageName = function() {
-    var url, page
+    var url, page = ''
     
     url = getCurrentUrl()
-    page = url.match(/(([(\w|\.)]*\?)|(\/[\w]+\/\?))/ig)
-    page = page[0].replace(/([.]*[\w]*\?)|([\/]+[\?]*)/ig, '')
+    pageAry = url.match(/(([(\w|\.)]*\?)|(\/[\w]+\/\?))/ig)
     
+    if (pageAry !== null) {
+        page = pageAry[0].replace(/([.]*[\w]*\?)|([\/]+[\?]*)/ig, '')
+    } 
+        
     return page.trim() == '' ? 'index' : page
 }
 
 var getTrimUrl = function() {
     var url = getCurrentUrl()
     
-    url = url.match(/[\w|\:\/]+\?/ig)
+    url = url.match(/[\w|\:\/]+\?*/ig)
     trimUrl = url[0].replace(/\/\?/ig, '')
     
     return trimUrl
