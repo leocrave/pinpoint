@@ -1,6 +1,6 @@
 {
   "name": "pinpointjs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "To track call to actions of webpage layout",
   "main": "src/index.js",
   "scripts": {
