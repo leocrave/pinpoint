@@ -263,15 +263,19 @@ var getPageName = function() {
     if (pageAry !== null) {
         page = pageAry[0].replace(/([.]*[\w]*\?)|([\/]+[\?]*)/ig, '')
     } 
-        
+    
     return page.trim() == '' ? 'index' : page
 }
 
 var getTrimUrl = function() {
+    var url = 
     var url = getCurrentUrl()
     
-    url = url.match(/(http\:\/\/|https\:\/\/)+[\w\.]+\/\?*/ig)
-    trimUrl = url[0].replace(/\/\?/ig, '')
+    url = url.match(/(http\:\/\/|https\:\/\/)+[\w\.\:]+\/\?*/ig)
+    
+    if (url !== null) {
+        trimUrl = url[0].replace(/\/\?/ig, '')
+    }
     
     return trimUrl
 }
@@ -309,7 +313,7 @@ module.exports = {
             $.post('http://wearecrave.com/pinpoint/insertPinpoint.php', data, function(response) {
                 console.log(response)
             }, 'json');
-
+            
         }, 'json')
     },
     getBrowserType: getBrowserType,
