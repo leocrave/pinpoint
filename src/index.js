@@ -268,7 +268,6 @@ var getPageName = function() {
 }
 
 var getTrimUrl = function() {
-    var url = 
     var url = getCurrentUrl()
     
     url = url.match(/(http\:\/\/|https\:\/\/)+[\w\.\:]+\/\?*/ig)
