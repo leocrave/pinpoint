@@ -270,7 +270,7 @@ var getPageName = function() {
 var getTrimUrl = function() {
     var url = getCurrentUrl()
     
-    url = url.match(/[\w|\:\/]+\?*/ig)
+    url = url.match(/(http\:\/\/|https\:\/\/)+[\w\.]+\/\?*/ig)
     trimUrl = url[0].replace(/\/\?/ig, '')
     
     return trimUrl
