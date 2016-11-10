@@ -1,5 +1,5 @@
 {
-  "name": "pinpoint",
+  "name": "pinpointjs",
   "version": "1.0.0",
   "description": "To track call to actions of webpage layout",
   "main": "src/index.js",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/leocrave/pinpoint/issues"
   },
-  "homepage": "https://github.com/leocrave/pinpoint#readme"
+  "homepage": "https://github.com/leocrave/pinpoint#readme",
+  "devDependencies": {
+    "jquery": "3.1.1"
+  }
 }
