@@ -284,6 +284,7 @@ module.exports = {
         var action = data.action
         var component = typeof data.component === 'undefined' ? '' : data.component
         var section = typeof data.section === 'undefined' ? '' : data.section
+        var page = typeof data.page === 'undefined' ? getPageName() : data.page
         
         $.get('https://ipinfo.io/', function(response) {
             ip = response.ip
@@ -293,7 +294,6 @@ module.exports = {
             url = getTrimUrl()
             channel = getChannelRef()
             batch = getBatchRef()
-            page = getPageName()
             
             var data = {
                 ip: ip,
@@ -310,9 +310,7 @@ module.exports = {
             }
             
             $.post('http://wearecrave.com/pinpoint/insertPinpoint.php', data, function(response) {
-                console.log(response)
             }, 'json');
-            
         }, 'json')
     },
     getBrowserType: getBrowserType,
